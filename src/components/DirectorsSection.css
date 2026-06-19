@@ -1,0 +1,221 @@
+/* ───────────────────────────────────────────────────────────
+   Directors Section — two director cards side by side
+   ─────────────────────────────────────────────────────────── */
+
+.directors-section {
+  position: relative;
+  padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 48px);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.directors-section__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(32px, 5vw, 56px);
+}
+
+.directors-section__title {
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--text);
+  max-width: 640px;
+  text-wrap: balance;
+}
+
+/* ─── Grid ─── */
+.directors-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  width: 100%;
+}
+
+/* ─── Image-as-card (Aviraj — the image is already a complete card) ─── */
+.directors-card-image {
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.directors-card-image:hover {
+  transform: translateY(-4px);
+}
+
+:root[data-theme='dark'] .directors-card-image {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+:root[data-theme='dark'] .directors-card-image:hover {
+  box-shadow: 0 14px 48px rgba(0, 0, 0, 0.4);
+}
+
+.directors-card-image__link {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.directors-card-image__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ─── Card (Shakeel placeholder) ─── */
+.directors-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.directors-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+:root[data-theme='dark'] .directors-card {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme='dark'] .directors-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* ─── Card Image ─── */
+.directors-card__image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--muted) 8%, transparent);
+}
+
+/* ─── Empty / placeholder state ─── */
+.directors-card__image-wrap--empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: color-mix(in srgb, var(--muted) 6%, var(--bg));
+}
+
+.directors-card__placeholder-icon {
+  color: color-mix(in srgb, var(--muted) 40%, transparent);
+}
+
+.directors-card__placeholder-text {
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  color: color-mix(in srgb, var(--muted) 50%, transparent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Card Body ─── */
+.directors-card__body {
+  padding: clamp(16px, 2.4vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.directors-card__name {
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin: 0;
+}
+
+.directors-card__role {
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  color: color-mix(in srgb, var(--text) 55%, transparent);
+  font-weight: 500;
+  margin: 0 0 auto;
+}
+
+.directors-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 10px 22px;
+  font-size: clamp(0.78rem, 0.95vw, 0.88rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: var(--lg-text);
+  border-radius: 999px;
+  white-space: nowrap;
+  align-self: flex-start;
+}
+
+/* ─── Responsive ─── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .directors-section__grid {
+    gap: 24px;
+  }
+
+  .directors-card__image-wrap {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .directors-section {
+    padding: 48px 18px;
+  }
+
+  .directors-section__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .directors-card__image-wrap {
+    aspect-ratio: 16 / 11;
+  }
+
+  .directors-card__btn {
+    padding: 12px 24px;
+    min-height: 44px;
+  }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  .directors-section {
+    padding: 40px 14px;
+  }
+
+  .directors-card__body {
+    padding: 14px 16px;
+  }
+
+  .directors-card__btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}

@@ -15,6 +15,20 @@ export const DIRECTOR_PROFILES = {
     narrative:
       'At MW Futuretech, the focus stays on building systems that can adapt as the market changes: tighter feedback loops, sharper product decisions, and digital experiences that feel considered at every layer.',
   },
+  'shakeel-jamadar': {
+    slug: 'shakeel-jamadar',
+    name: 'Shakeel Jamadar',
+    firstName: 'Shakeel',
+    lastName: 'Jamadar',
+    role: 'Director',
+    organization: 'MW Futuretech',
+    image: null, // TODO: add profile image when available
+    cardImage: null, // TODO: add card image when available
+    ghostHeadline: 'About The Director',
+    statementLead: '',
+    statementBody: '',
+    narrative: '',
+  },
 }
 
 export function getDirectorProfile(slug = '') {

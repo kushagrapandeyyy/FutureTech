@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import HeroScene, { SILVER_MODEL_LIGHTING_PROPS } from '../components/HeroScene'
+import DirectorsSection from '../components/DirectorsSection'
 import TeamSection from '../components/TeamSection'
 import {
   COIN_MODEL_URL,
@@ -46,6 +47,7 @@ export default function AboutPage({ introStartRef }) {
         introStartOffset={1.6}
         backgroundImage="/images/hero-backgrounds/hero-bg-about.webp"
       />
+      <DirectorsSection />
       <TeamSection />
     </>
   )

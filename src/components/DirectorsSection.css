@@ -10,7 +10,7 @@
 }
 
 .directors-section__inner {
-  max-width: 1100px;
+  max-width: 1600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -18,15 +18,92 @@
   gap: clamp(32px, 5vw, 56px);
 }
 
-.directors-section__title {
-  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+/* ==================================================
+   FIGMA DIRECTORS HERO
+================================================== */
+
+.directors-section__hero {
+  position: relative;
+  width: 100%;
+  height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+/* Background Watermark */
+
+.directors-section__hero-bg {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+
+  font-size: clamp(7rem, 15vw, 15rem);
+
+  line-height: 0.88;
+
+  color: #f5efe6;
+
   text-align: center;
-  color: var(--text);
-  max-width: 640px;
-  text-wrap: balance;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 0;
+}
+
+/* Main Heading */
+
+.directors-section__hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: 820px;
+  max-width: 90vw;
+}
+
+.directors-section__hero-line {
+  font-family: 'Montserrat', sans-serif;
+
+  font-weight: 700;
+
+  color: #262626;
+
+  letter-spacing: -0.05em;
+
+  line-height: 0.9;
+}
+
+/* Our — smallest indent */
+.hero-line-1 {
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  width: fit-content;
+}
+
+/* Visionary — moderate indent */
+.hero-line-2 {
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  width: fit-content;
+  margin-left: clamp(2rem, 6vw, 100px);
+  margin-top: -0.04em;
+}
+
+/* Directors — largest indent */
+.hero-line-3 {
+  font-size: clamp(3.5rem, 7vw, 8rem);
+  width: fit-content;
+  margin-left: clamp(4rem, 12vw, 220px);
+  margin-top: -0.04em;
 }
 
 /* ─── Grid ─── */
@@ -35,6 +112,8 @@
   grid-template-columns: 1fr 1fr;
   gap: clamp(20px, 3vw, 40px);
   width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 /* ─── Image-as-card (Aviraj — the image is already a complete card) ─── */
@@ -42,7 +121,7 @@
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .directors-card-image:hover {
@@ -79,7 +158,7 @@
   border: 1px solid var(--border);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .directors-card:hover {
@@ -217,5 +296,36 @@
   .directors-card__btn {
     width: 100%;
     min-height: 44px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .directors-section__hero {
+    height: 320px;
+  }
+
+  .hero-line-1 {
+    margin-left: 0;
+  }
+
+  .hero-line-2 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .hero-line-3 {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  .directors-section__hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .directors-section__hero-bg {
+    font-size: 5rem;
   }
 }

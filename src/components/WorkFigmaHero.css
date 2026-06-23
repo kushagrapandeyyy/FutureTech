@@ -237,3 +237,71 @@ transform-origin: center center;
 .work-figma-hero__works-text {
 transform-origin: left center;
 }
+
+
+/* ==========================================
+   CONTENT REVEAL
+========================================== */
+
+.work-figma-hero__content {
+  position: absolute;
+
+  left: 80px;
+  top: 260px;
+
+  width: 540px;
+
+  z-index: 4;
+
+  transform: translateY(900px);
+}
+
+.work-figma-hero__content p {
+  margin: 0;
+
+  font-family: 'Manrope', sans-serif;
+
+  font-size: 22px;
+  line-height: 1.7;
+
+  color: #262626;
+}
+
+.work-figma-hero__line {
+  width: 48px;
+  height: 3px;
+
+  background: #262626;
+
+  margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+  .work-figma-hero__content {
+    width: 420px;
+    left: 40px;
+    top: 200px;
+  }
+
+  .work-figma-hero__content p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-figma-hero__content {
+    width: calc(100% - 48px);
+    left: 24px;
+    top: 140px;
+  }
+
+  .work-figma-hero__content p {
+    font-size: 16px;
+  }
+}
+
+.work-figma-hero__moving-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}

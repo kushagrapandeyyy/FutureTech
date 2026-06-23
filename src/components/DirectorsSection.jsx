@@ -24,9 +24,33 @@ export default function DirectorsSection() {
   return (
     <section className="directors-section">
       <div className="directors-section__inner">
-        <motion.h2 className="directors-section__title" {...sectionReveal}>
-          Some Text About the Both Director
-        </motion.h2>
+        <motion.div
+          className="directors-section__hero"
+          {...sectionReveal}
+        >
+          <div
+            className="directors-section__hero-bg"
+            aria-hidden="true"
+          >
+            OUR
+            <br />
+            DIRECTOR'S
+          </div>
+
+          <div className="directors-section__hero-content">
+            <div className="directors-section__hero-line hero-line-1">
+              Our
+            </div>
+
+            <div className="directors-section__hero-line hero-line-2">
+              Visionary
+            </div>
+
+            <div className="directors-section__hero-line hero-line-3">
+              Directors
+            </div>
+          </div>
+        </motion.div>
 
         <div className="directors-section__grid">
           {/* Aviraj Sharma — the image is already a complete card design */}

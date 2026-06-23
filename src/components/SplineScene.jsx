@@ -58,6 +58,7 @@ export default function SplineScene({ style, className, onLoad }) {
         if (!node) return undefined
 
         if (typeof IntersectionObserver === 'undefined') {
+            // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time fallback mount
             setShouldMount(true)
             return undefined
         }

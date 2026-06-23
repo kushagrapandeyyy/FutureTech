@@ -23,6 +23,8 @@ const POINTER_TILT_Y = 0.12 // sway left/right based on mouse X
 const SUBTLE_TILT_Y = 0.04
 const SUBTLE_TILT_Z = 0.05
 
+// Shared silver lighting profile for all page-level GLB models.
+// eslint-disable-next-line react-refresh/only-export-components
 export const SILVER_MODEL_LIGHTING_PROPS = {
   frontLight: true,
   ambientIntensity: 1.65,

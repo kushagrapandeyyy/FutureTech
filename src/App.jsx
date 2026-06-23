@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import Header from './components/Header'
@@ -48,7 +48,7 @@ function injectImagePreload(href) {
     img.decoding = 'async'
     img.src = href
     if (typeof img.decode === 'function') {
-      img.decode().catch(() => {})
+      img.decode().catch(() => { })
     }
   } catch {
     /* ignore */
@@ -68,8 +68,12 @@ export default function App() {
   const isWorkPage = normalizedPath === '/work'
   const lenisRef = useLenisScroll({ disabled: isSpadeClone })
   const [theme] = useState('light')
-  const introStartRefs = useRef(
-    Object.fromEntries([...MODEL_INTRO_PATHS].map((path) => [path, { current: null }])),
+  // Stable ref-like objects per model-route path. useMemo avoids accessing
+  // .current during render (react-hooks/refs) while still giving children
+  // mutable objects the useLayoutEffect below can write into.
+  const introStartRefs = useMemo(
+    () => Object.fromEntries([...MODEL_INTRO_PATHS].map((path) => [path, { current: null }])),
+    [],
   )
   const [loaderComplete, setLoaderComplete] = useState(false)
   const modelIntroPath = isSpadeClone ? null : getModelIntroPath(normalizedPath)
@@ -101,7 +105,7 @@ export default function App() {
   useLayoutEffect(() => {
     if (!modelIntroPath) return undefined
 
-    const introStartRef = introStartRefs.current[modelIntroPath]
+    const introStartRef = introStartRefs[modelIntroPath]
     introStartRef.current = null
 
     if (!loaderComplete) return undefined
@@ -111,10 +115,10 @@ export default function App() {
     }, MODEL_INTRO_ARM_DELAY)
 
     return () => window.clearTimeout(timer)
-  }, [loaderComplete, modelIntroPath])
+  }, [loaderComplete, modelIntroPath, introStartRefs])
 
   const getIntroRef = (path) => (
-    modelIntroPath === path ? introStartRefs.current[path] : null
+    modelIntroPath === path ? introStartRefs[path] : null
   )
 
   return (

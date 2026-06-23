@@ -17,6 +17,7 @@ export default function Header() {
 
   // Close the drawer whenever the route changes.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- route-change cleanup is idiomatic
     setMenuOpen(false)
     setHeaderVisible(true)
     lastScrollYRef.current = 0
@@ -25,6 +26,7 @@ export default function Header() {
   // Hide the header on downward scroll and reveal it on upward scroll.
   useEffect(() => {
     if (menuOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- force-visible when drawer is open
       setHeaderVisible(true)
       return undefined
     }

@@ -186,7 +186,6 @@ function IconBox({ icon: Icon, color, label, index, isInView }) {
 
   useEffect(() => {
     if (!isInView) {
-      setGlowing(false);
       return undefined;
     }
 

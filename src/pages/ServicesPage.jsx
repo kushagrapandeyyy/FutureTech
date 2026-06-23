@@ -1,34 +1,25 @@
-import { useEffect } from 'react'
-import HeroScene from '../components/HeroScene'
 import ExpertiseSection from '../components/ExpertiseSection'
-import {
-  SERVICES_MODEL_URL,
-  servicesModelPromise,
-  getServicesModelReady,
-  getServicesModelUrl,
-} from '../lib/servicesModel'
 
-export default function ServicesPage({ introStartRef }) {
-  const servicesModelUrl = getServicesModelReady() ? getServicesModelUrl() : SERVICES_MODEL_URL
-
-  useEffect(() => {
-    if (getServicesModelReady()) return
-    servicesModelPromise.catch(() => { })
-  }, [])
-
+export default function ServicesPage() {
   return (
     <>
-      <HeroScene
-        modelUrl={servicesModelUrl}
-        title="Services engineered for scale."
-        tagline="From research to production, we architect software that ships, operates, and adapts."
-        introStartRef={introStartRef}
-        scaleMultiplier={0.86}
-        mobileScaleMultiplier={1.56}
-        yOffset={0.32}
-        mobileYOffset={0.44}
-        backgroundImage="/images/hero-backgrounds/hero-bg-services.webp"
-      />
+      <section className="hero-section services-hero">
+        <div className="services-hero-image-wrap">
+          <img
+            src="/images/futuretech news and events page image.png"
+            alt="News and Events"
+            className="services-hero-image"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div className="hero-overlay">
+          <h1>News &amp; Events</h1>
+          <p className="tagline">
+            Stay informed with the latest from MW Futuretech — insights, announcements, and industry events.
+          </p>
+        </div>
+      </section>
       <ExpertiseSection />
     </>
   )

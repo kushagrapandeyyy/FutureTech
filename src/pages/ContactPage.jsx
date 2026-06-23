@@ -12,7 +12,7 @@ export default function ContactPage() {
       >
         <div className="lets-talk-page__media" aria-hidden="true">
           <img
-            src="/images/contact.gif"
+            src="/images/Contact.png"
             alt=""
             loading="eager"
             decoding="async"

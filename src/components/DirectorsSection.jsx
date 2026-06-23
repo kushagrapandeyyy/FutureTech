@@ -28,7 +28,7 @@ export default function DirectorsSection() {
           className="directors-section__hero"
           {...sectionReveal}
         >
-          <div
+          <div  
             className="directors-section__hero-bg"
             aria-hidden="true"
           >

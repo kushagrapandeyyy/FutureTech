@@ -13,6 +13,7 @@ import './App.css'
 const HomePage = lazy(() => import('./pages/HomePage'))
 const WorkPage = lazy(() => import('./pages/WorkPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const NewsEventsPage = lazy(() => import('./pages/NewsEventsPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const DirectorPage = lazy(() => import('./pages/DirectorPage'))
@@ -149,7 +150,7 @@ export default function App() {
             <Routes location={location}>
               <Route path="/" element={<HomePage introStartRef={getIntroRef('/')} />} />
               <Route path="/work" element={<WorkPage />} />
-              <Route path="/news-events" element={<ServicesPage introStartRef={getIntroRef('/news-events')} />} />
+              <Route path="/news-events" element={<NewsEventsPage introStartRef={getIntroRef('/news-events')} />} />
               <Route path="/services" element={<Navigate to="/news-events" replace />} />
               <Route path="/about" element={<AboutPage introStartRef={getIntroRef('/about')} />} />
               <Route path="/contact" element={<ContactPage />} />
